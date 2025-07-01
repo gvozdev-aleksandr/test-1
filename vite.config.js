@@ -13,6 +13,7 @@ export default defineConfig({
     alias: {
       '@components': resolve(__dirname, 'src/components'),
       '@app': resolve(__dirname, 'src/app'),
+      '@mocks': resolve(__dirname, 'src/mocks'),
     },
   },
 })
