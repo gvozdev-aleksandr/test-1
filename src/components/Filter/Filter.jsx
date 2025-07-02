@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { FilterWrapper, SelectButton, DropDownList, DropDownItem } from "./styled";
 
-function Filter({ selected = 'Выберите опцию', setSelected, options }) {    
+function Filter({ selected = 'Выберите категорию', setSelected, options }) {    
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef(null);
 
@@ -40,7 +40,7 @@ function Filter({ selected = 'Выберите опцию', setSelected, options
                 aria-haspopup="listbox"
                 aria-expanded={isOpen}
             >
-                {selected || 'Выберите опцию'}
+                {selected || 'Выберите категорию'}
             </SelectButton>
             {isOpen && (
                 <DropDownList role="listbox">

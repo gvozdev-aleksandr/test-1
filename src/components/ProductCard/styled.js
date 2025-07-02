@@ -2,12 +2,14 @@ import styled from 'styled-components';
 
 export const ProductContainer = styled.div`
     position: relative;
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 20px;
     width: 100%;
-    background-color: blue;
+    height: 100%;
+    background-color: ${({ theme }) => theme.bgCard};
     border-radius: 20px;
-    padding: 10px;
+    padding: 15px;
 `;
 
 export const ProductTitle = styled.h2`
@@ -22,6 +24,7 @@ export const StyledImg = styled.img`
 `;
 
 export const InfoWrapper = styled.p`
+    flex-grow: 1;
     padding: 0;
     margin: 0;
     display: flex;
@@ -35,15 +38,16 @@ export const Price = styled.span`
 `;
 
 export const ModalButton = styled.button`
-    padding: 12px 36px;
-    justify-self: center;
+    padding: ${({ theme }) => theme.buttonPadding};
+    align-self: center;
     border: none;
     border-radius: 8px;
-    color: white;
-    background-color: black;
+    background-color: ${({ theme }) => theme.bgButton};
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
 
     &:hover {
-        color: black;
-        background-color: white;
+        background-color: ${({ theme }) => theme.bgButtonHover};
     }
 `;

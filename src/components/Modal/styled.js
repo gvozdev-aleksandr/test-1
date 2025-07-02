@@ -13,7 +13,8 @@ export const ModalBackdrop = styled.div`
 
 export const StyledModal = styled.div`
   position: relative;
-  background: white;
+  color: ${({ theme }) => theme.secondaryTextColor};
+  background: ${({ theme }) => theme.bgModal};
   border-radius: 10px;
   padding: 2rem;
   max-width: 90%;
@@ -29,5 +30,9 @@ export const StyledModal = styled.div`
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+
+    &:hover {
+      color: ${({ theme }) => theme.primaryTextColor};;
+    }
   }
 `;
