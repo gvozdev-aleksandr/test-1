@@ -29,12 +29,18 @@ function Modal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 
   return (
-    <ModalBackdrop onClick={handleBackdropClick}>
-      <StyledModal>
+    <ModalBackdrop
+      onClick={handleBackdropClick}
+      aria-modal="true"
+      aria-hidden={!isOpen}
+    >
+      <StyledModal role="dialog" aria-labelledby="modal-title">
         <button 
           className="close-button" 
           onClick={onClose}
           aria-label="Закрыть модальное окно"
+          autoFocus
+          tabIndex={0}
         >
           &times;
         </button>
