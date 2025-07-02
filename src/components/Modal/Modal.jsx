@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { StyledModal, ModalBackdrop } from "./styled";
+import { StyledModal, ModalBackdrop, ModalTitle, ModalDescription, ModalPrice, ModalImg } from "./styled";
 
-function Modal({ isOpen, onClose, children }) {  
+function Modal({ isOpen, onClose, description, name, img, price }) {  
   useEffect(() => {
     const handleKeyDown = (e) => {
       if (e.key === 'Escape') {
@@ -44,7 +44,10 @@ function Modal({ isOpen, onClose, children }) {
         >
           &times;
         </button>
-        {children}
+        <ModalTitle>{name}</ModalTitle>
+        <ModalDescription>{description}</ModalDescription>
+        <ModalPrice>Цена {price} €</ModalPrice>
+        <ModalImg src={img} alt={name}/>
       </StyledModal>
     </ModalBackdrop>
   );

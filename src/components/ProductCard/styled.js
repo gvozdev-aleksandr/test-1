@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProductContainer = styled.div`
-    position: relative;
+    //position: relative;
     display: flex;
     flex-direction: column;
     gap: 20px;
