@@ -3,9 +3,7 @@ import { GlobalStyle } from './styled'
 import ProductList from '../components/ProductList/ProductList'
 
 function App() {
- 
-
-  return (
+   return (
     <>
       <GlobalStyle />
       <ProductList />        

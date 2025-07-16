@@ -1,26 +1,35 @@
-import React, { useEffect } from "react";
+import React, { MouseEvent, useEffect } from "react";
 import { StyledModal, ModalBackdrop, ModalTitle, ModalDescription, ModalPrice, ModalImg } from "./styled";
 
-function Modal({ isOpen, onClose, description, name, img, price }) {  
+interface ModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  description: string;
+  name: string;
+  img: string;
+  price: string;
+}
+
+function Modal({ isOpen, onClose, description, name, img, price }: ModalProps) {  
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         onClose();
       }
     };
 
     if (isOpen) {
-      document.addEventListener('keydown', handleKeyDown);
+      document.addEventListener('keydown', handleKeyDown as EventListener);
       document.body.style.overflow = 'hidden';
     }
 
     return () => {
-      document.removeEventListener('keydown', handleKeyDown);
+      document.removeEventListener('keydown', handleKeyDown as EventListener);
       document.body.style.overflow = ''; 
     };
   }, [isOpen, onClose]);
 
-  const handleBackdropClick = (e) => {
+  const handleBackdropClick = (e: MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
     }
@@ -44,7 +53,7 @@ function Modal({ isOpen, onClose, description, name, img, price }) {
         >
           &times;
         </button>
-        <ModalTitle>{name}</ModalTitle>
+        <ModalTitle id="modal-title">{name}</ModalTitle>
         <ModalDescription>{description}</ModalDescription>
         <ModalPrice>Цена {price} €</ModalPrice>
         <ModalImg src={img} alt={name}/>

@@ -1,18 +1,24 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FilterWrapper, SelectButton, DropDownList, DropDownItem } from "./styled";
 
-function Filter({ selected = 'Выберите категорию', setSelected, options }) {    
-    const [isOpen, setIsOpen] = useState(false);
-    const dropdownRef = useRef(null);
+interface FilterProps {
+    selected: string;
+    setSelected: (option: string) => void;
+    options: string[];
+}
 
-    const handleSelect = (opt) => {
+function Filter({ selected = 'Выберите категорию', setSelected, options }: FilterProps) {    
+    const [isOpen, setIsOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    const handleSelect = (opt: string) => {
         setSelected(opt);
         setIsOpen(false);
     };
 
     useEffect(() => {
-        const handleClickOutside = (event) => {
-            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsOpen(false);
             }
         };
@@ -24,7 +30,7 @@ function Filter({ selected = 'Выберите категорию', setSelected,
     }, []);
 
     useEffect(() => {
-        const handleKeyDown = (e) => {
+        const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') setIsOpen(false);
         };
 

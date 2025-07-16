@@ -1,8 +1,16 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ProductContainer, ProductTitle, StyledImg, InfoWrapper, Price, ModalButton } from "./styled";
 import Modal from "../Modal/Modal";
 
-function ProductCard({ name, price, category, image, description }) {
+interface ProductCardProps {
+    name: string;
+    price: number;
+    category: string;
+    image: string;
+    description: string
+}
+
+function ProductCard({ name, price, category, image, description }: ProductCardProps) {
     const [isOpen, setIsOpen] = useState(false);
     const formattedPrice = new Intl.NumberFormat('de-DE').format(price);    
 

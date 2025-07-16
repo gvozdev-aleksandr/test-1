@@ -23,5 +23,4 @@ export const Products = [
     description: "Прочный чехол из силикона",
     image: "https://via.placeholder.com/150"
   },
-  // можешь добавить свои
 ];
